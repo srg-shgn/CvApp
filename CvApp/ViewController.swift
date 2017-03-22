@@ -60,6 +60,12 @@ class ViewController: UIViewController, UITableViewDelegate {
 class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var tableViewIdRestoration = ""
+        if let tableViewId = tableView.restorationIdentifier {
+            tableViewIdRestoration = tableViewId
+        }
+        print(tableViewIdRestoration)
         let cellData = tableFormationsData[indexPath.row]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier(for:cellData.cellType), for: indexPath)
@@ -89,8 +95,6 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var textLbl: UILabel!
     
     func setup(with cellData: CellFormationData) {
-        
-        print(cellData.texte)
         textLbl.text = cellData.texte
     }
 }
