@@ -38,10 +38,12 @@ let tableExperiencesData = [
 class ViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableVIewFormations: UITableView!
+    @IBOutlet weak var tableViewExperiences: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableVIewFormations.delegate = self
+        tableViewExperiences.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -61,13 +63,20 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //récupération du Restoration ID de la tableView
         var tableViewIdRestoration = ""
         if let tableViewId = tableView.restorationIdentifier {
             tableViewIdRestoration = tableViewId
         }
         print(tableViewIdRestoration)
-        let cellData = tableFormationsData[indexPath.row]
-
+        
+        var cellData: CellFormationData
+        if tableViewIdRestoration == "formationsTV" {
+            cellData = tableFormationsData[indexPath.row]
+        } else {
+            cellData = tableExperiencesData[indexPath.row]
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier(for:cellData.cellType), for: indexPath)
         
         if let cell = cell as? CustomCell {
@@ -77,7 +86,21 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableFormationsData.count
+        
+        //récupération du Restoration ID de la tableView
+        var tableViewIdRestoration = ""
+        if let tableViewId = tableView.restorationIdentifier {
+            tableViewIdRestoration = tableViewId
+        }
+        
+        var rowCount = 0
+        if tableViewIdRestoration == "formationsTV" {
+            rowCount = tableFormationsData.count
+        } else {
+            rowCount = tableExperiencesData.count
+        }
+        
+        return rowCount
     }
     
     private func identifier(for cellType: CellFormationData.CellType) -> String {

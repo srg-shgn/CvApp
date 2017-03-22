@@ -225,6 +225,9 @@
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="ZB6-QA-e8m" id="UHr-Q7-bQW"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,6 +289,7 @@
                     </view>
                     <connections>
                         <outlet property="tableVIewFormations" destination="8js-Km-9Cr" id="1fF-Pe-qmQ"/>
+                        <outlet property="tableViewExperiences" destination="pQR-DL-5Y9" id="Y1e-iE-XeR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
