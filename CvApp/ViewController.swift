@@ -16,6 +16,15 @@ struct CellFormationData {
     var texte: String
 }
 
+struct CellCompetencesnData {
+    enum CellType { case comp, comp2 }
+    var cellType: CellType
+    var competence1: String
+    var niveauComp1: Int
+    var competence2: String
+    var niveauComp2: Int
+}
+
 let tableFormationsData = [
     CellFormationData(cellType: .custom2, texte: "2017 : Formation développeur mobile iOS (3WA)"),
     CellFormationData(cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog )"),
@@ -33,12 +42,21 @@ let tableExperiencesData = [
     CellFormationData(cellType: .custom2, texte: "1998- 2006 : MEDIAGERANCE (flash, director, photoshop, premiere, after effect…)")
 ]
 
+let tableCompetencesData = [
+    CellCompetencesnData(cellType: .comp, competence1: "iOS", niveauComp1: 2, competence2: "ANGLAIS", niveauComp2: 4),
+    CellCompetencesnData(cellType: .comp, competence1: "FLASH BUILDER", niveauComp1: 5, competence2: "ESPAGNOL", niveauComp2: 2),
+    CellCompetencesnData(cellType: .comp, competence1: "JAVASCRIPT", niveauComp1: 3, competence2: "", niveauComp2: 0),
+    CellCompetencesnData(cellType: .comp, competence1: "PHP", niveauComp1: 2, competence2: "", niveauComp2: 0),
+    CellCompetencesnData(cellType: .comp, competence1: "JAVA J2EE", niveauComp1: 2, competence2: "", niveauComp2: 0)
+]
+
 // MARK: - View Controller 
 
 class ViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableVIewFormations: UITableView!
     @IBOutlet weak var tableViewExperiences: UITableView!
+    @IBOutlet weak var tableViewCompetences: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +86,6 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
         if let tableViewId = tableView.restorationIdentifier {
             tableViewIdRestoration = tableViewId
         }
-        print(tableViewIdRestoration)
         
         var cellData: CellFormationData
         if tableViewIdRestoration == "formationsTV" {
@@ -119,6 +136,13 @@ class CustomCell: UITableViewCell {
     
     func setup(with cellData: CellFormationData) {
         textLbl.text = cellData.texte
+    }
+}
+
+class CompetenceCell: UITableViewCell {
+    
+    func setup(with cellData: CellCompetencesnData) {
+        
     }
 }
 
