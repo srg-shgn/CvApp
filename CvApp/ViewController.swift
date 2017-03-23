@@ -147,7 +147,7 @@ class CustomCell: UITableViewCell {
     func setup(with cellData: CellData) {
         textLbl.text = cellData.texte
         
-        if cellData.niveauComp1 > 0 {
+        if cellData.cellType == .comp {
             displayPastille(niveau: cellData.niveauComp1)
         }
     }
