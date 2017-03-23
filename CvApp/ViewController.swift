@@ -10,44 +10,40 @@ import UIKit
 
 //MARK: - Modèle 
 
-struct CellFormationData {
-    enum CellType { case custom, custom2 }
+struct CellData {
+    enum CellType { case custom, custom2, comp }
     var cellType: CellType
     var texte: String
-}
-
-struct CellCompetencesnData {
-    enum CellType { case comp, comp2 }
-    var cellType: CellType
-    var competence1: String
+    
     var niveauComp1: Int
-    var competence2: String
+    var texte2: String
     var niveauComp2: Int
+    
 }
 
 let tableFormationsData = [
-    CellFormationData(cellType: .custom2, texte: "2017 : Formation développeur mobile iOS (3WA)"),
-    CellFormationData(cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog )"),
-    CellFormationData(cellType: .custom, texte: "1998 : Certificat de réalisateur multimédia (Les Gobelins)"),
-    CellFormationData(cellType: .custom, texte: "1996 : DEESCOM (Bac+3, Efficom)"),
-    CellFormationData(cellType: .custom, texte: "1995 : BTS Communication et publicité (Bac+2, Iscom)"),
-    CellFormationData(cellType: .custom, texte: "1993 : Bac D")
+    CellData(cellType: .custom2, texte: "2017 : Formation développeur mobile iOS (3WA)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog )", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom, texte: "1998 : Certificat de réalisateur multimédia (Les Gobelins)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom, texte: "1996 : DEESCOM (Bac+3, Efficom)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom, texte: "1995 : BTS Communication et publicité (Bac+2, Iscom)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom, texte: "1993 : Bac D", niveauComp1: 0, texte2: "", niveauComp2: 0)
 ]
 
 let tableExperiencesData = [
-    CellFormationData(cellType: .custom2, texte: "2012 - 2016 : VIDEODESK (flash builder, ams, javascript, html5, webrtc, github)"),
-    CellFormationData(cellType: .custom2, texte: "2009 - 2012 : CONTACT & PLUS (flash builder, fms, php, sql)"),
-    CellFormationData(cellType: .custom2, texte: "2009 : PHOTOBOX / MEETIC (flex, fms)"),
-    CellFormationData(cellType: .custom2, texte: "2007 - 2008 : YACAST (flex, java J2EE, sql)"),
-    CellFormationData(cellType: .custom2, texte: "1998- 2006 : MEDIAGERANCE (flash, director, photoshop, premiere, after effect…)")
+    CellData(cellType: .custom2, texte: "2012 - 2016 : VIDEODESK (flash builder, ams, javascript, html5, webrtc, github)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom2, texte: "2009 - 2012 : CONTACT & PLUS (flash builder, fms, php, sql)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom2, texte: "2009 : PHOTOBOX / MEETIC (flex, fms)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom2, texte: "2007 - 2008 : YACAST (flex, java J2EE, sql)", niveauComp1: 0, texte2: "", niveauComp2: 0),
+    CellData(cellType: .custom2, texte: "1998- 2006 : MEDIAGERANCE (flash, director, photoshop, premiere, after effect…)", niveauComp1: 0, texte2: "", niveauComp2: 0)
 ]
 
 let tableCompetencesData = [
-    CellCompetencesnData(cellType: .comp, competence1: "iOS", niveauComp1: 2, competence2: "ANGLAIS", niveauComp2: 4),
-    CellCompetencesnData(cellType: .comp, competence1: "FLASH BUILDER", niveauComp1: 5, competence2: "ESPAGNOL", niveauComp2: 2),
-    CellCompetencesnData(cellType: .comp, competence1: "JAVASCRIPT", niveauComp1: 3, competence2: "", niveauComp2: 0),
-    CellCompetencesnData(cellType: .comp, competence1: "PHP", niveauComp1: 2, competence2: "", niveauComp2: 0),
-    CellCompetencesnData(cellType: .comp, competence1: "JAVA J2EE", niveauComp1: 2, competence2: "", niveauComp2: 0)
+    CellData(cellType: .comp, texte: "iOS", niveauComp1: 2, texte2: "ANGLAIS", niveauComp2: 4),
+    CellData(cellType: .comp, texte: "FLASH BUILDER", niveauComp1: 5, texte2: "ESPAGNOL", niveauComp2: 2),
+    CellData(cellType: .comp, texte: "JAVASCRIPT", niveauComp1: 3, texte2: "", niveauComp2: 0),
+    CellData(cellType: .comp, texte: "PHP", niveauComp1: 2, texte2: "", niveauComp2: 0),
+    CellData(cellType: .comp, texte: "JAVA J2EE", niveauComp1: 2, texte2: "", niveauComp2: 0)
 ]
 
 // MARK: - View Controller 
@@ -62,6 +58,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         tableVIewFormations.delegate = self
         tableViewExperiences.delegate = self
+        tableViewCompetences.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -87,14 +85,16 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
             tableViewIdRestoration = tableViewId
         }
         
-        var cellData: CellFormationData
+        var cellData: CellData
         if tableViewIdRestoration == "formationsTV" {
             cellData = tableFormationsData[indexPath.row]
-        } else {
+        } else if tableViewIdRestoration == "experiencesTV" {
             cellData = tableExperiencesData[indexPath.row]
+        } else {
+            cellData = tableCompetencesData[indexPath.row]
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier(for:cellData.cellType), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier(for: cellData.cellType), for: indexPath)
         
         if let cell = cell as? CustomCell {
             cell.setup(with: cellData)
@@ -120,10 +120,11 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
         return rowCount
     }
     
-    private func identifier(for cellType: CellFormationData.CellType) -> String {
+    private func identifier(for cellType: CellData.CellType) -> String {
         switch cellType {
         case .custom: return "CustomCell"
         case .custom2: return "CustomCell2"
+        case .comp: return "CompetenceCell"
         }
     }
     
@@ -134,17 +135,11 @@ class CustomCell: UITableViewCell {
     
     @IBOutlet weak var textLbl: UILabel!
     
-    func setup(with cellData: CellFormationData) {
+    func setup(with cellData: CellData) {
         textLbl.text = cellData.texte
     }
 }
 
-class CompetenceCell: UITableViewCell {
-    
-    func setup(with cellData: CellCompetencesnData) {
-        
-    }
-}
 
 
 

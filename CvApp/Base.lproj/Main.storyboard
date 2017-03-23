@@ -257,11 +257,11 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zCi-nL-n5s">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="competencesTV" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zCi-nL-n5s">
                                                         <rect key="frame" x="0.0" y="20" width="375" height="169"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompetenceCell" rowHeight="100" id="agE-t0-x05" customClass="CompetenceCell" customModule="CvApp">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompetenceCell" rowHeight="100" id="agE-t0-x05" customClass="CustomCell" customModule="CvApp">
                                                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="agE-t0-x05" id="YrQ-aa-t7B">
@@ -281,41 +281,41 @@
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-2r-Ziq">
-                                                                                            <rect key="frame" x="71.5" y="0.0" width="116" height="99.5"/>
+                                                                                            <rect key="frame" x="121.5" y="0.0" width="66" height="99.5"/>
                                                                                             <subviews>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vide" translatesAutoresizingMaskIntoConstraints="NO" id="lAO-oZ-XCc">
-                                                                                                    <rect key="frame" x="0.0" y="41" width="20" height="18"/>
+                                                                                                    <rect key="frame" x="0.0" y="45.5" width="10" height="9"/>
                                                                                                     <constraints>
-                                                                                                        <constraint firstAttribute="width" constant="20" id="YIj-b6-jex"/>
-                                                                                                        <constraint firstAttribute="height" constant="18" id="u2n-4k-euC"/>
+                                                                                                        <constraint firstAttribute="width" constant="10" id="YIj-b6-jex"/>
+                                                                                                        <constraint firstAttribute="height" constant="9" id="u2n-4k-euC"/>
                                                                                                     </constraints>
                                                                                                 </imageView>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vide" translatesAutoresizingMaskIntoConstraints="NO" id="yLq-jc-V38">
-                                                                                                    <rect key="frame" x="24" y="41" width="20" height="18"/>
+                                                                                                    <rect key="frame" x="14" y="45.5" width="10" height="9"/>
                                                                                                     <constraints>
-                                                                                                        <constraint firstAttribute="width" constant="20" id="Kfa-x0-jyE"/>
-                                                                                                        <constraint firstAttribute="height" constant="18" id="lK9-VT-Ygw"/>
+                                                                                                        <constraint firstAttribute="width" constant="10" id="Kfa-x0-jyE"/>
+                                                                                                        <constraint firstAttribute="height" constant="9" id="lK9-VT-Ygw"/>
                                                                                                     </constraints>
                                                                                                 </imageView>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vide" translatesAutoresizingMaskIntoConstraints="NO" id="GgO-vG-Qj2">
-                                                                                                    <rect key="frame" x="48" y="41" width="20" height="18"/>
+                                                                                                    <rect key="frame" x="28" y="45.5" width="10" height="9"/>
                                                                                                     <constraints>
-                                                                                                        <constraint firstAttribute="height" constant="18" id="Rbr-yk-ouq"/>
-                                                                                                        <constraint firstAttribute="width" constant="20" id="fUq-Tg-54e"/>
+                                                                                                        <constraint firstAttribute="height" constant="9" id="Rbr-yk-ouq"/>
+                                                                                                        <constraint firstAttribute="width" constant="10" id="fUq-Tg-54e"/>
                                                                                                     </constraints>
                                                                                                 </imageView>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vide" translatesAutoresizingMaskIntoConstraints="NO" id="gcT-jc-OFn">
-                                                                                                    <rect key="frame" x="72" y="41" width="20" height="18"/>
+                                                                                                    <rect key="frame" x="42" y="45.5" width="10" height="9"/>
                                                                                                     <constraints>
-                                                                                                        <constraint firstAttribute="width" constant="20" id="dNV-G4-KRs"/>
-                                                                                                        <constraint firstAttribute="height" constant="18" id="u7N-DE-BfM"/>
+                                                                                                        <constraint firstAttribute="width" constant="10" id="dNV-G4-KRs"/>
+                                                                                                        <constraint firstAttribute="height" constant="9" id="u7N-DE-BfM"/>
                                                                                                     </constraints>
                                                                                                 </imageView>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vide" translatesAutoresizingMaskIntoConstraints="NO" id="6Cb-0N-AO0">
-                                                                                                    <rect key="frame" x="96" y="41" width="20" height="18"/>
+                                                                                                    <rect key="frame" x="56" y="45.5" width="10" height="9"/>
                                                                                                     <constraints>
-                                                                                                        <constraint firstAttribute="width" constant="20" id="aWl-yT-GtU"/>
-                                                                                                        <constraint firstAttribute="height" constant="18" id="tPO-W8-PZa"/>
+                                                                                                        <constraint firstAttribute="width" constant="10" id="aWl-yT-GtU"/>
+                                                                                                        <constraint firstAttribute="height" constant="9" id="tPO-W8-PZa"/>
                                                                                                     </constraints>
                                                                                                 </imageView>
                                                                                             </subviews>
@@ -356,8 +356,14 @@
                                                                         <constraint firstAttribute="bottom" secondItem="9ng-uH-Jz6" secondAttribute="bottom" id="ws6-7e-7Y6"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="textLbl" destination="d5W-C5-GSO" id="zUa-2P-ZsF"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="ZB6-QA-e8m" id="FZr-sh-sP9"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
