@@ -135,8 +135,37 @@ class CustomCell: UITableViewCell {
     
     @IBOutlet weak var textLbl: UILabel!
     
+    @IBOutlet weak var pastille1: UIImageView!
+    @IBOutlet weak var pastille2: UIImageView!
+    @IBOutlet weak var pastille3: UIImageView!
+    @IBOutlet weak var pastille4: UIImageView!
+    @IBOutlet weak var pastille5: UIImageView!
+    
+    let pastilleVide = #imageLiteral(resourceName: "vide")
+    let pastillePleine = #imageLiteral(resourceName: "plein")
+    
     func setup(with cellData: CellData) {
         textLbl.text = cellData.texte
+        
+        if cellData.niveauComp1 > 0 {
+            displayPastille(niveau: cellData.niveauComp1)
+        }
+    }
+    
+    private func displayPastille(niveau: Int) {
+        pastille1.image = pastillePleine
+        if niveau > 1 {
+            pastille2.image = pastillePleine
+        }
+        if niveau > 2 {
+            pastille3.image = pastillePleine
+        }
+        if niveau > 3 {
+            pastille4.image = pastillePleine
+        }
+        if niveau > 4 {
+            pastille5.image = pastillePleine
+        }
     }
 }
 
