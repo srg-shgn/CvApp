@@ -1,15 +1,14 @@
-
 //
-//  DetailViewController.swift
+//  FormationViewController.swift
 //  CvApp
 //
-//  Created by Serge Sahaguian on 23/03/2017.
+//  Created by Serge Sahaguian on 24/03/2017.
 //  Copyright © 2017 Serge Sahaguian. All rights reserved.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class FormationViewController: UIViewController {
 
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
