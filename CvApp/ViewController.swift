@@ -46,6 +46,12 @@ let tableCompetencesData = [
     CellData(cellType: .comp, texte: "JAVA J2EE", niveauComp1: 2, texte2: "", niveauComp2: 0)
 ]
 
+func getTableViewID(tableView: UITableView) -> String {
+    
+    
+    return ""
+}
+
 // MARK: - View Controller 
 
 class ViewController: UIViewController, UITableViewDelegate {
@@ -70,6 +76,17 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 23
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        //let selectedCell = indexPath.row
+        
+        
+        //    performSegue(withIdentifier: "presentDetail", sender: self)
+        //deselectionne la cellule, juste après qu'on ai cliqué dessus
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -134,12 +151,22 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
 class CustomCell: UITableViewCell {
     
     @IBOutlet weak var textLbl: UILabel!
+    @IBOutlet weak var textLbl2: UILabel!
     
     @IBOutlet weak var pastille1: UIImageView!
     @IBOutlet weak var pastille2: UIImageView!
     @IBOutlet weak var pastille3: UIImageView!
     @IBOutlet weak var pastille4: UIImageView!
     @IBOutlet weak var pastille5: UIImageView!
+    
+    @IBOutlet weak var pastillesComp2View: UIStackView!
+    
+    @IBOutlet weak var pastille1_b: UIImageView!
+    @IBOutlet weak var pastille2_b: UIImageView!
+    @IBOutlet weak var pastille3_b: UIImageView!
+    @IBOutlet weak var pastille4_b: UIImageView!
+    @IBOutlet weak var pastille5_b: UIImageView!
+    
     
     let pastilleVide = #imageLiteral(resourceName: "vide")
     let pastillePleine = #imageLiteral(resourceName: "plein")
@@ -148,11 +175,19 @@ class CustomCell: UITableViewCell {
         textLbl.text = cellData.texte
         
         if cellData.cellType == .comp {
-            displayPastille(niveau: cellData.niveauComp1)
+            displayPastilleComp(niveau: cellData.niveauComp1)
+            
+            textLbl2.text = cellData.texte2
+            if cellData.niveauComp2 == 0 {
+                pastillesComp2View.isHidden = true
+            } else {
+                displayPastilleLangue(niveau: cellData.niveauComp2)
+            }
+            
         }
     }
     
-    private func displayPastille(niveau: Int) {
+    private func displayPastilleComp(niveau: Int) {
         pastille1.image = pastillePleine
         if niveau > 1 {
             pastille2.image = pastillePleine
@@ -165,6 +200,22 @@ class CustomCell: UITableViewCell {
         }
         if niveau > 4 {
             pastille5.image = pastillePleine
+        }
+    }
+    
+    private func displayPastilleLangue(niveau: Int) {
+        pastille1_b.image = pastillePleine
+        if niveau > 1 {
+            pastille2_b.image = pastillePleine
+        }
+        if niveau > 2 {
+            pastille3_b.image = pastillePleine
+        }
+        if niveau > 3 {
+            pastille4_b.image = pastillePleine
+        }
+        if niveau > 4 {
+            pastille5_b.image = pastillePleine
         }
     }
 }
