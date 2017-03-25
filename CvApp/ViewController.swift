@@ -63,8 +63,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableViewExperiences: UITableView!
     @IBOutlet weak var tableViewCompetences: UITableView!
     
-    var idDetail: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableVIewFormations.delegate = self
@@ -85,30 +83,32 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         let tableViewIdRestoration = getTableViewID(tableView: tableView)
         
-        var cellData: CellData
-        if tableViewIdRestoration == "formationsTV" {
-            cellData = tableFormationsData[indexPath.row]
-        } else if tableViewIdRestoration == "experiencesTV" {
-            cellData = tableExperiencesData[indexPath.row]
-        } else {
-            cellData = tableCompetencesData[indexPath.row]
+        if tableViewIdRestoration != "experiencesTV" {
+            //deselectionne la cellule, juste après qu'on ai cliqué dessus
+            tableView.deselectRow(at: indexPath, animated: true)
         }
-        let cellType = cellData.cellType
-        
-        if cellType == .custom2 {
-            idDetail = cellData.id
-            print("idDetail = \(idDetail)")
-        }
-        //
-        //deselectionne la cellule, juste après qu'on ai cliqué dessus
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("SEGUE CALLED !")
+        if segue.identifier == "presentExperience" {
+            if let experiencenVC = segue.destination as? ExperienceViewController {
+                experiencenVC.delegate = self
+            }
+        }
+    }
+}
+
+extension ViewController: ExperienceViewControllerDelegate {
+    func getSelectedExperience() -> CellData {
+
+        //recupération de l'index de l'experience selectionnée
+        let selectedExperienceItem = tableViewExperiences.indexPathForSelectedRow?.row
+        //desélection de la cellule pour supprimer le fond gris
+        tableViewExperiences.deselectRow(at: tableViewExperiences.indexPathForSelectedRow!, animated: false)
+        
+        return tableExperiencesData[selectedExperienceItem!]
     }
 }
 
