@@ -13,6 +13,8 @@ class ExperienceViewController: UIViewController {
     var delegate: ExperienceViewControllerDelegate?
     var selectedCell: CellData?
     
+    @IBOutlet weak var titreTextView: UITextView!
+    
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -21,7 +23,8 @@ class ExperienceViewController: UIViewController {
         super.viewDidLoad()
         
         selectedCell = delegate?.getSelectedExperience()
-        print("selectedCell = \(selectedCell?.texte)")
+        
+        titreTextView.text = selectedCell?.texte
     }
 
     override func didReceiveMemoryWarning() {

@@ -533,21 +533,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlA-gq-GNG">
-                                <rect key="frame" x="16" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9r-uC-x17">
+                                <rect key="frame" x="16" y="105" width="288" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPV-8g-IZT">
+                                <rect key="frame" x="16" y="20" width="30" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="VNr-Id-bLP"/>
+                                    <constraint firstAttribute="height" constant="20" id="l3P-do-nR4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="backButton:" destination="4y7-b7-aM1" eventType="touchUpInside" id="2ar-65-AM1"/>
+                                    <action selector="backButton:" destination="4y7-b7-aM1" eventType="touchUpInside" id="C63-bV-7f6"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4D1-Tm-nMP">
+                                <rect key="frame" x="16" y="40" width="288" height="65"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.34512993693351746" green="0.6033281683921814" blue="0.84434449672698975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="akS-9J-JME" firstAttribute="top" secondItem="p9r-uC-x17" secondAttribute="bottom" constant="20" id="FPa-kf-LX0"/>
+                            <constraint firstItem="4D1-Tm-nMP" firstAttribute="trailing" secondItem="RIU-aL-IIj" secondAttribute="trailingMargin" id="Gv1-RM-giI"/>
+                            <constraint firstItem="TPV-8g-IZT" firstAttribute="leading" secondItem="RIU-aL-IIj" secondAttribute="leadingMargin" id="RpP-HA-Tvg"/>
+                            <constraint firstItem="p9r-uC-x17" firstAttribute="leading" secondItem="RIU-aL-IIj" secondAttribute="leadingMargin" id="SzY-a1-e36"/>
+                            <constraint firstItem="4D1-Tm-nMP" firstAttribute="leading" secondItem="RIU-aL-IIj" secondAttribute="leadingMargin" id="UZQ-NI-kKS"/>
+                            <constraint firstItem="TPV-8g-IZT" firstAttribute="top" secondItem="smG-bK-Oca" secondAttribute="bottom" id="Y8d-xj-aiY"/>
+                            <constraint firstItem="p9r-uC-x17" firstAttribute="top" secondItem="smG-bK-Oca" secondAttribute="bottom" constant="85" id="fSC-03-atL"/>
+                            <constraint firstItem="p9r-uC-x17" firstAttribute="top" secondItem="4D1-Tm-nMP" secondAttribute="bottom" id="mML-WV-4FX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p9r-uC-x17" secondAttribute="trailing" id="mVB-bH-VrZ"/>
+                            <constraint firstItem="4D1-Tm-nMP" firstAttribute="top" secondItem="TPV-8g-IZT" secondAttribute="bottom" id="wos-Yd-YeE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titreTextView" destination="4D1-Tm-nMP" id="kIo-RA-zG2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMz-5x-SLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="574"/>
+            <point key="canvasLocation" x="930" y="573.5915492957746"/>
         </scene>
     </scenes>
     <resources>
