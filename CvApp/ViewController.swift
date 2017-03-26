@@ -10,41 +10,70 @@ import UIKit
 
 //MARK: - Modèle 
 
-struct CellData {
+class CellData {
     enum CellType { case custom, custom2, comp }
-    var id: String
+    var id: String = ""
     var cellType: CellType
-    var texte: String
+    var texte: String = ""
     
-    var niveauComp1: Int
-    var texte2: String
-    var niveauComp2: Int
+    init(id: String, cellType: CellType, texte: String) {
+        self.id = id
+        self.cellType = cellType
+        self.texte = texte
+    }
     
 }
 
+class CellDataExp: CellData {
+    var titre: String = ""
+    var periode: String = ""
+    var sousTitre: String = ""
+    
+    init(id: String, cellType: CellType, texte: String, titre: String, periode: String, sousTitre: String) {
+        super.init(id: id, cellType: cellType, texte: texte)
+        self.titre = titre
+        self.periode = periode
+        self.sousTitre = sousTitre
+    }
+}
+
+class CellDataComp: CellData {
+    var niveauComp1: Int = 0
+    var texte2: String = ""
+    var niveauComp2: Int = 0
+    
+    init(id: String, cellType: CellType, texte: String, niveauComp1: Int, texte2: String, niveauComp2: Int) {
+        super.init(id: id, cellType: cellType, texte: texte)
+        self.niveauComp1 = niveauComp1
+        self.texte2 = texte2
+        self.niveauComp2 = niveauComp2
+    }
+}
+
 let tableFormationsData = [
-    CellData(id: "form_1", cellType: .custom2, texte: "2017 : Formation développeur mobile iOS (3WA)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "form_2", cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog )", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "form_3", cellType: .custom, texte: "1998 : Certificat de réalisateur multimédia (Les Gobelins)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "form_4", cellType: .custom, texte: "1996 : DEESCOM (Bac+3, Efficom)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "form_5", cellType: .custom, texte: "1995 : BTS Communication et publicité (Bac+2, Iscom)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "form_6", cellType: .custom, texte: "1993 : Bac D", niveauComp1: 0, texte2: "", niveauComp2: 0)
+    CellData(id: "form_1", cellType: .custom2, texte: "2017 : Formation développeur mobile iOS (3WA)"),
+    CellData(id: "form_2", cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog )"),
+    CellData(id: "form_3", cellType: .custom, texte: "1998 : Certificat de réalisateur multimédia (Les Gobelins)"),
+    CellData(id: "form_4", cellType: .custom, texte: "1996 : DEESCOM (Bac+3, Efficom)"),
+    CellData(id: "form_5", cellType: .custom, texte: "1995 : BTS Communication et publicité (Bac+2, Iscom)"),
+    CellData(id: "form_6", cellType: .custom, texte: "1993 : Bac D")
 ]
 
 let tableExperiencesData = [
-    CellData(id: "exp_1", cellType: .custom2, texte: "2012 - 2016 : VIDEODESK (flash builder, ams, javascript, html5, webrtc, github)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "exp_2", cellType: .custom2, texte: "2009 - 2012 : CONTACT & PLUS (flash builder, fms, php, sql)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "exp_3", cellType: .custom2, texte: "2009 : PHOTOBOX / MEETIC (flex, fms)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "exp_4", cellType: .custom2, texte: "2007 - 2008 : YACAST (flex, java J2EE, sql)", niveauComp1: 0, texte2: "", niveauComp2: 0),
-    CellData(id: "exp_5", cellType: .custom2, texte: "1998- 2006 : MEDIAGERANCE (flash, director, photoshop, premiere, after effect…)", niveauComp1: 0, texte2: "", niveauComp2: 0)
+    CellDataExp(id: "exp_1", cellType: .custom2, texte: "2012 - 2016 : VIDEODESK (flash builder, ams, javascript, html5, webrtc, github)", titre: "VIDEODESK", periode: "2012 - 2016 : 49 mois", sousTitre: "(flash builder, ams, javascript, html5, webrtc, github)"),
+    CellDataExp(id: "exp_2", cellType: .custom2, texte: "2009 - 2012 : CONTACT & PLUS (flash builder, fms, php, sql)", titre: "CONTACT & PLUS", periode: "2009 - 2012 : 30 mois", sousTitre: "(flash builder, fms, php, sql)"),
+    CellDataExp(id: "exp_3", cellType: .custom2, texte: "2009 : PHOTOBOX (flex, fms)", titre: "PHOTOBOX", periode: "2009 : 3 mois", sousTitre: "(flex, fms)"),
+    CellDataExp(id: "exp_4", cellType: .custom2, texte: "2009 : MEETIC (flex, fms)", titre: "MEETIC", periode: "2009 : 5 mois", sousTitre: "(flex, fms)"),
+    CellDataExp(id: "exp_5", cellType: .custom2, texte: "2007 - 2008 : YACAST (flex, java J2EE, sql)", titre: "YACAST", periode:"2007 - 2008 : 13 mois", sousTitre: "(flex, java J2EE, sql)"),
+    CellDataExp(id: "exp_6", cellType: .custom2, texte: "1998- 2006 : MEDIAGERANCE (flash, director, photoshop, premiere, after effect…)", titre: "MEDIAGERANCE", periode: "1998- 2006 : 8 ans",  sousTitre: "(flash, director, photoshop, premiere, after effect…)")
 ]
 
 let tableCompetencesData = [
-    CellData(id: "comp_1", cellType: .comp, texte: "iOS", niveauComp1: 2, texte2: "ANGLAIS", niveauComp2: 4),
-    CellData(id: "comp_2", cellType: .comp, texte: "FLASH BUILDER", niveauComp1: 5, texte2: "ESPAGNOL", niveauComp2: 2),
-    CellData(id: "comp_3", cellType: .comp, texte: "JAVASCRIPT", niveauComp1: 3, texte2: "", niveauComp2: 0),
-    CellData(id: "comp_4", cellType: .comp, texte: "PHP", niveauComp1: 2, texte2: "", niveauComp2: 0),
-    CellData(id: "comp_5", cellType: .comp, texte: "JAVA J2EE", niveauComp1: 2, texte2: "", niveauComp2: 0)
+    CellDataComp(id: "comp_1", cellType: .comp, texte: "iOS", niveauComp1: 2, texte2: "ANGLAIS", niveauComp2: 4),
+    CellDataComp(id: "comp_2", cellType: .comp, texte: "FLASH BUILDER", niveauComp1: 5, texte2: "ESPAGNOL", niveauComp2: 2),
+    CellDataComp(id: "comp_3", cellType: .comp, texte: "JAVASCRIPT", niveauComp1: 3, texte2: "", niveauComp2: 0),
+    CellDataComp(id: "comp_4", cellType: .comp, texte: "PHP", niveauComp1: 2, texte2: "", niveauComp2: 0),
+    CellDataComp(id: "comp_5", cellType: .comp, texte: "JAVA J2EE", niveauComp1: 2, texte2: "", niveauComp2: 0)
 ]
 
 func getTableViewID(tableView: UITableView) -> String {
@@ -101,7 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 }
 
 extension ViewController: ExperienceViewControllerDelegate {
-    func getSelectedExperience() -> CellData {
+    func getSelectedExperience() -> CellDataExp {
 
         //recupération de l'index de l'experience selectionnée
         let selectedExperienceItem = tableViewExperiences.indexPathForSelectedRow?.row
@@ -124,9 +153,9 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
         if tableViewIdRestoration == "formationsTV" {
             cellData = tableFormationsData[indexPath.row]
         } else if tableViewIdRestoration == "experiencesTV" {
-            cellData = tableExperiencesData[indexPath.row]
+            cellData = tableExperiencesData[indexPath.row] as CellDataExp
         } else {
-            cellData = tableCompetencesData[indexPath.row]
+            cellData = tableCompetencesData[indexPath.row] as CellDataComp
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier(for: cellData.cellType), for: indexPath)
@@ -187,10 +216,14 @@ class CustomCell: UITableViewCell {
     let pastilleVide = #imageLiteral(resourceName: "vide")
     let pastillePleine = #imageLiteral(resourceName: "plein")
     
-    func setup(with cellData: CellData) {
+    //func setup(with cellData: CellData) {
+    func setup(with cellData: AnyObject) {
+        
+        let cellData = cellData as! CellData
         textLbl.text = cellData.texte
         
         if cellData.cellType == .comp {
+            let cellData = cellData as! CellDataComp
             displayPastilleComp(niveau: cellData.niveauComp1)
             
             textLbl2.text = cellData.texte2

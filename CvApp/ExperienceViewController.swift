@@ -11,9 +11,11 @@ import UIKit
 class ExperienceViewController: UIViewController {
     
     var delegate: ExperienceViewControllerDelegate?
-    var selectedCell: CellData?
+    var selectedCell: CellDataExp?
     
-    @IBOutlet weak var titreTextView: UITextView!
+    @IBOutlet weak var titreLbl: UILabel!
+    @IBOutlet weak var periodeLbl: UILabel!
+    @IBOutlet weak var sousTitreTextView: UITextView!
     
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -24,7 +26,9 @@ class ExperienceViewController: UIViewController {
         
         selectedCell = delegate?.getSelectedExperience()
         
-        titreTextView.text = selectedCell?.texte
+        titreLbl.text = selectedCell?.titre
+        periodeLbl.text = selectedCell?.periode
+        sousTitreTextView.text = selectedCell?.sousTitre
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,5 +51,5 @@ class ExperienceViewController: UIViewController {
 
 
 protocol ExperienceViewControllerDelegate {
-    func getSelectedExperience() -> CellData
+    func getSelectedExperience() -> CellDataExp
 }
