@@ -11,7 +11,7 @@ import UIKit
 //MARK: - Modèle 
 
 class CellData {
-    enum CellType { case custom, custom2, comp }
+    enum CellType { case custom, custom2, comp, mission, missionXL }
     var cellType: CellType
     var texte: String = ""
     
@@ -19,7 +19,6 @@ class CellData {
         self.cellType = cellType
         self.texte = texte
     }
-    
 }
 
 class CellDataExp: CellData {
@@ -54,7 +53,6 @@ class CellDataMission: CellData {
         super.init(cellType: cellType, texte: texte)
         self.envTech = envTech
     }
-    
 }
 
 let tableFormationsData = [
@@ -150,7 +148,7 @@ extension ViewController: ExperienceViewControllerDelegate {
 
 // MARK: - Data Source
 
-class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
+class MyTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -194,6 +192,8 @@ class MyTableViewFormationsDataSource: NSObject, UITableViewDataSource {
         case .custom: return "CustomCell"
         case .custom2: return "CustomCell2"
         case .comp: return "CompetenceCell"
+        case .mission: return "MissionCell"
+        case .missionXL: return "MissionCell"
         }
     }
     
