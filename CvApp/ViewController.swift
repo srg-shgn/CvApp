@@ -57,7 +57,8 @@ class CellDataMission: CellData {
 
 let tableFormationsData = [
     CellData(cellType: .custom2, texte: "2017 : Formation développeur mobile iOS (3WA)"),
-    CellData(cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog )"),
+    CellData(cellType: .custom, texte: "2007 : Certificat de développeur Java J2EE (Bac+4, Cyberlog)"),
+    CellData(cellType: .custom, texte: "2000 - 2001 : IHM et Bases de données Oracle (Cnam)"),
     CellData(cellType: .custom, texte: "1998 : Certificat de réalisateur multimédia (Les Gobelins)"),
     CellData(cellType: .custom, texte: "1996 : DEESCOM (Bac+3, Efficom)"),
     CellData(cellType: .custom, texte: "1995 : BTS Communication et publicité (Bac+2, Iscom)"),
