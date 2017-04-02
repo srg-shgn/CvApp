@@ -98,15 +98,49 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableViewExperiences: UITableView!
     @IBOutlet weak var tableViewCompetences: UITableView!
     
+    @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var emailLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableVIewFormations.delegate = self
         tableViewExperiences.delegate = self
         tableViewCompetences.delegate = self
         
-        // Do any additional setup after loading the view, typically from a nib.
+        let tapPhoneNumber = UITapGestureRecognizer(target: self, action: #selector(ViewController.callNumber))
+        phoneNumber.isUserInteractionEnabled = true
+        phoneNumber.addGestureRecognizer(tapPhoneNumber)
+        
+        let tapEmail = UITapGestureRecognizer(target: self, action: #selector(ViewController.callEmail))
+        emailLbl.isUserInteractionEnabled = true
+        emailLbl.addGestureRecognizer(tapEmail)
     }
-
+    
+    func callNumber(sender:UITapGestureRecognizer) {
+        guard let number = URL(string: "telprompt://" + "0685544736") else {
+            print("ECHEC APPEL !")
+            return
+        }
+        print("LAUNCH CALL !")
+        UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
+    
+    func callEmail(sender:UITapGestureRecognizer) {
+        
+        let subject = "Some subject"
+        let body = "Plenty of email body."
+        let coded = "mailto:sahaguian.serge@gmail.com?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        if let emailURL: NSURL = NSURL(string: coded!) {
+            if UIApplication.shared.canOpenURL(emailURL as URL) {
+                UIApplication.shared.open(emailURL as URL, options: [:], completionHandler: nil)
+                print("LAUNCH EMAIL !")
+            }
+        }
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

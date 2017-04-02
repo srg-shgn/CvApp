@@ -62,7 +62,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+33 6 85 54 47 36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-F2-UHI">
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+33 6 85 54 47 36" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-F2-UHI">
                                                         <rect key="frame" x="0.0" y="55" width="73" height="10.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -483,6 +483,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailLbl" destination="kTW-93-dZA" id="7WT-1x-tky"/>
+                        <outlet property="phoneNumber" destination="EfZ-F2-UHI" id="lue-uo-7hb"/>
                         <outlet property="tableVIewFormations" destination="8js-Km-9Cr" id="1fF-Pe-qmQ"/>
                         <outlet property="tableViewCompetences" destination="zCi-nL-n5s" id="ZAj-2O-EyA"/>
                         <outlet property="tableViewExperiences" destination="pQR-DL-5Y9" id="Y1e-iE-XeR"/>
