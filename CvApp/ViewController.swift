@@ -24,7 +24,7 @@ class CellData {
 class CellDataExp: CellData {
     var titre: String = ""
     var periode: String = ""
-    var sousTitre: String = ""
+    var sousTitre: String = ""	
     
     init(cellType: CellType, texte: String, titre: String, periode: String, sousTitre: String) {
         super.init(cellType: cellType, texte: texte)
@@ -137,8 +137,6 @@ class ViewController: UIViewController, UITableViewDelegate {
                 print("LAUNCH EMAIL !")
             }
         }
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
